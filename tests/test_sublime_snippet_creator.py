@@ -8,37 +8,13 @@ test_sublime_snippet_creator
 Tests for `sublime_snippet_creator` module.
 """
 
-import os
 import docopt
 import pytest
 
-from sublime_snippet_creator import sublime_snippet_creator
-
-import docopt
-
-from sublime_snippet_creator import sublime_snippet_creator
 from sublime_snippet_creator import cli
+from sublime_snippet_creator import sublime_snippet_creator
 
 
-@pytest.fixture
-def absolute_path():
-    """Return an absolute path (which is useful for running tests)."""
-    # return os.path.abspath(os.path.join(os.path.dirname(__file__), '.'))
-
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
-def test_content(absolute_path, response):
-    """Sample pytest test function with the pytest fixture as an argument.
-    """
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
 @pytest.fixture
 def command_line_args():
     """Function to simulate command line arguments using docopt."""
@@ -59,3 +35,5 @@ def test_command_line_interface(command_line_args):
     error_message = exc_info.value
     # make sure the error message contains the expected usage output
     assert "Usage:" in str(error_message)
+
+# TODO: Add more robust tests here (1)

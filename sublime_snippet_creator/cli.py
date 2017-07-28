@@ -2,7 +2,6 @@
 """Sublime Snippet Creator.
 
 Usage:
-  # TODO: Add usage instructions here
   sublime_snippet_creator <target_file> <output_directory> <class_prefix> [--snippet_prefix=<snippet_prefix>]
   sublime_snippet_creator (-h | --help)
   sublime_snippet_creator --version
