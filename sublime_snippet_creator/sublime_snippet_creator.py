@@ -14,9 +14,6 @@ SNIPPET_TEMPLATE = """<snippet>
     <tabTrigger>{}</tabTrigger>
 </snippet>"""
 
-CLASS_PREFIX = "tcex."
-SNIPPET_PREFIX = "tce"
-
 
 def _request_code(target_url):
     """Request a code file."""
@@ -38,6 +35,14 @@ def _find_functions(code):
 
 def main(args):
     """Create sublime text snippets automatically from code."""
+    CLASS_PREFIX = args['<class_prefix>']
+
+    # define the prefix used when saving a new snippet and for the snippet's tab trigger
+    if args['--snippet_prefix']:
+        SNIPPET_PREFIX = args['--snippet_prefix']
+    else:
+        SNIPPET_PREFIX = CLASS_PREFIX
+
     # if we are pulling the code from a location on the internet (e.g. a raw file on github), get the code
     if args['<target_file>'].startswith("http"):
         code = _request_code(args['<target_file>'])
@@ -92,7 +97,7 @@ def main(args):
             # create the snippet's code for non-static methods
             else:
                 # create snippet code (with the class prefix in front of it)
-                snippet_code = CLASS_PREFIX + function[1] + "(" + argument_string + ")"
+                snippet_code = CLASS_PREFIX + "." + function[1] + "(" + argument_string + ")"
 
             # create a snippet
             new_snippet = SNIPPET_TEMPLATE.format(snippet_code, snippet_description, snippet_name)
