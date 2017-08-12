@@ -90,14 +90,8 @@ def main(args):
             # create a description for the snippet based on the function's doc string
             snippet_description = function[3].replace('"""', '')
 
-            # create the snippet's code for static methods
-            if decorator == "@staticmethod":
-                # create snippet code without the class prefix in front of it
-                snippet_code = function[1] + "(" + argument_string + ")"
-            # create the snippet's code for non-static methods
-            else:
-                # create snippet code (with the class prefix in front of it)
-                snippet_code = CLASS_PREFIX + "." + function[1] + "(" + argument_string + ")"
+            # create snippet code (with the class prefix in front of it)
+            snippet_code = CLASS_PREFIX + "." + function[1] + "(" + argument_string + ")"
 
             # create a snippet
             new_snippet = SNIPPET_TEMPLATE.format(snippet_code, snippet_description, snippet_name)
