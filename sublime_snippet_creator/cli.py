@@ -9,7 +9,7 @@ Usage:
 Options:
   -h --help     Show this screen.
   --version     Show version.
-  --snippet_prefix  The prefix used for each snippet file and its tab trigger (default is the class_prefix)
+  --snippet_prefix=<snippet_prefix>  The prefix used for each snippet file and its tab trigger (default is the class_prefix)
 """
 
 from docopt import docopt
